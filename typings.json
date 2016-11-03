@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "ramda": "registry:dt/ramda#0.0.0+20160824142652"
+  }
+}

@@ -18,5 +18,8 @@
     "babel-register": "^6.11.6",
     "mocha": "^3.0.1",
     "nodemon": "^1.10.0"
+  },
+  "dependencies": {
+    "@types/ramda": "0.0.2"
   }
 }
