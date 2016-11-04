@@ -91,3 +91,11 @@ describe('Get sorted ID', () => {
     done();
   })
 })
+
+describe('Get sum of ID', () => {
+  it('gets the IDs and returns the sum', done => {
+    var summedID = functions.addID(newReleases);
+    assert.equal(summedID, 790575833);
+    done();
+  });
+}); 
