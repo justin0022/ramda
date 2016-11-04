@@ -83,3 +83,11 @@ describe('Get Title and ID', () => {
     done();
   });
 });
+
+describe('Get sorted ID', () => {
+  it('first gets the ID, then sorts ID by increasing order', done => {
+    var sortedID = functions.sortID(newReleases);
+    assert.deepEqual(sortedID, [675465, 65432445, 70111470, 654356453]);
+    done();
+  })
+})
