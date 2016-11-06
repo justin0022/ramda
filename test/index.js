@@ -1,25 +1,10 @@
 import http from 'http';
 import assert from 'assert';
+import R from 'ramda';
 
 import functions from '../lib/index.js';
 
-var ponies = [
-    [
-        ['name', 'Fluttershy'],
-        ['image', 'http://tinyurl.com/gpbnlf6'],
-        ['description', 'Fluttershy is a female Pegasus pony and one of the main characters of My Little Pony Friendship is Magic.']
-    ],
-    [
-        ['name', 'Applejack'],
-        ['image', 'http://tinyurl.com/gkur8a6'],
-        ['description', 'Applejack is a female Earth pony and one of the main characters of My Little Pony Friendship is Magic.']
-    ],
-    [
-        ['name', 'Twilight Sparkle'],
-        ['image', 'http://tinyurl.com/hj877vs'],
-        ['description', 'Twilight Sparkle is the primary main character of My Little Pony Friendship is Magic.']
-    ]
-];
+let string = 'abcdefg';
 
 var oneObject = [{
     "id": 70111470,
@@ -29,6 +14,77 @@ var oneObject = [{
     "rating": [4.0],
     "bookmark": []
 }];
+
+let nestedJson = [
+	{
+		"id": "0001",
+		"type": "donut",
+		"name": "Cake",
+		"ppu": 0.55,
+		"batters":
+			{
+				"batter":
+					[
+						{ "id": "1001", "type": "Regular" },
+						{ "id": "1002", "type": "Chocolate" },
+						{ "id": "1003", "type": "Blueberry" },
+						{ "id": "1004", "type": "Devil's Food" }
+					]
+			},
+		"topping":
+			[
+				{ "id": "5001", "type": "None" },
+				{ "id": "5002", "type": "Glazed" },
+				{ "id": "5005", "type": "Sugar" },
+				{ "id": "5007", "type": "Powdered Sugar" },
+				{ "id": "5006", "type": "Chocolate with Sprinkles" },
+				{ "id": "5003", "type": "Chocolate" },
+				{ "id": "5004", "type": "Maple" }
+			]
+	},
+	{
+		"id": "0002",
+		"type": "donut",
+		"name": "Raised",
+		"ppu": 0.55,
+		"batters":
+			{
+				"batter":
+					[
+						{ "id": "1001", "type": "Regular" }
+					]
+			},
+		"topping":
+			[
+				{ "id": "5001", "type": "None" },
+				{ "id": "5002", "type": "Glazed" },
+				{ "id": "5005", "type": "Sugar" },
+				{ "id": "5003", "type": "Chocolate" },
+				{ "id": "5004", "type": "Maple" }
+			]
+	},
+	{
+		"id": "0003",
+		"type": "donut",
+		"name": "Old Fashioned",
+		"ppu": 0.55,
+		"batters":
+			{
+				"batter":
+					[
+						{ "id": "1001", "type": "Regular" },
+						{ "id": "1002", "type": "Chocolate" }
+					]
+			},
+		"topping":
+			[
+				{ "id": "5001", "type": "None" },
+				{ "id": "5002", "type": "Glazed" },
+				{ "id": "5003", "type": "Chocolate" },
+				{ "id": "5004", "type": "Maple" }
+			]
+	}
+];
 
 var newReleases = [
   {
@@ -117,3 +173,11 @@ describe('Get sum of ID', () => {
     done();
   });
 }); 
+
+describe('Reverses input', () => {
+  it('reverses a given input', done => {
+    var x = functions.reversed(string);
+    assert.equal(x, 'gfedcba');
+    done();
+  });
+});
