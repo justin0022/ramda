@@ -2,7 +2,7 @@ import http from 'http';
 import assert from 'assert';
 import R from 'ramda';
 
-import functions from '../lib/index.js';
+import functions from '../lib/oldRamda.js';
 
 let string = 'abcdefg';
 
@@ -120,15 +120,6 @@ var newReleases = [
     "bookmark": [{ id: 432534, time: 65876586 }]
   }
 ];
-
-describe('Example Node Server', () => {
-  it('should return 200', done => {
-    http.get('http://127.0.0.1:1337', res => {
-      assert.equal(200, res.statusCode);
-      done();
-    });
-  });
-});
 
 describe('Get Id', () => {
   it('gets the IDs from an array of objects', done => {
